@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: "Outfit", sans-serif;
+    }
+
+    section {
+        @apply pt-8
+    }
+
+    h1, h2 {
+        @apply font-bold
+    }
+
+    h3, h4 {
+        @apply font-semibold
+    }
+
+    p {
+        @apply text-gray-600 font-light
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-[95%] mx-auto
+    }
+
+    .progress__section {
+        @apply container min-h-[30vh] flex items-center justify-center
+    }
+}
+
+
+@layer utilities {
+    .loading-view {
+        @apply min-w-full min-h-screen flex flex-col items-center justify-center
+    }
+
+    .notFound-view {
+        @apply min-w-full min-h-screen flex flex-col items-center justify-center
+    }
+
+    .notFound-view h1 {
+        @apply font-bold text-5xl
+    }
+
+    .sidemenu {
+        @apply absolute -left-[100%] md:left-0 md:relative z-50 flex flex-col h-screen bg-white max-w-[125px] w-full border border-slate-200 py-4 px-6 transition-all
+    }
+
+    .sidemenu--background {
+        @apply md:hidden fixed top-0 left-0 w-screen h-screen z-20 bg-black opacity-30
+    }
+
+    .sidemenu--active {
+        @apply left-[0%]
+    }
+
+    .sidemenu--items {
+        @apply flex flex-col items-center gap-2
+    }
+
+    .sidemenu__link {
+        @apply flex flex-col items-center p-3 font-medium min-w-full text-sm rounded-[1rem] text-slate-500 hover:sidemenu__link--active transition-all
+    }
+
+    .sidemenu__link--active {
+        @apply bg-primary-500/25 text-primary-600
+    }
+
+    /* .sidemenu--header {
+    @apply mb-8 flex items-center gap-2
+  }
+
+  .sidemenu--header h3 {
+    @apply font-semibold text-2xl
+  } */
+
+    .sidemenu--logo {
+        @apply bg-gradient-to-t from-primary-400 to-primary-500 text-2xl p-2 rounded-xl text-white mx-auto mb-8
+    }
+
+    /* ORDERS */
+    .order__card {
+        @apply cursor-pointer shadow-md bg-white rounded-xl p-5 md:flex items-center justify-between hover:shadow-md hover:outline hover:outline-[1px] outline-primary-500 transition-all hover:scale-[1.005]
+    }
+
+    .side__cart {
+        @apply sticky flex flex-col top-8 border border-slate-200 bg-white max-w-[400px] w-full mt-8 mb-8 mr-8 rounded-[2rem] p-6 py-8 shadow-md
+    }
+
+
+    /* CATEGORIES */
+    .categories__form {
+        @apply container bg-white p-6 space-y-4 rounded-lg shadow-md
+    }
+
+    .categories__header {
+        @apply pt-8
+    }
+
+
+    /* PRODUCTS */
+    .product__list {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6
+    }
+
+    .product__card {
+        @apply border-none rounded-[3rem] pb-4
+    }
+
+    .product__card--image {
+        @apply w-full rounded-[2rem] object-cover h-[200px] md:h-[275px] xl:h-[350px] object-center
+    }
+}
