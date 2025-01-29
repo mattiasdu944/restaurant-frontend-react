@@ -63,7 +63,7 @@
     }
 
     .sidemenu--items {
-        @apply flex flex-col items-center gap-2
+        @apply flex flex-col items-center gap-2 
     }
 
     .sidemenu__link {

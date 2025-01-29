@@ -8,7 +8,10 @@ export const CategoriesPage = () => {
         <>
             <header className="categories__header">
                 <div className="container">
-                    <TitlePage/>
+                    <TitlePage
+                        title="Categorias"
+                        description="Listado y gestion de categorias"
+                    />
                 </div>
             </header>
 

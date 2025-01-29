@@ -20,3 +20,22 @@ export const handleActionError = ( error: unknown ) => {
     }
 
 }
+
+
+export const formatDate = (isoDate: Date) => {
+
+    const date = new Date(isoDate);
+
+    const months = [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ]
+
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth(); // 0-11
+    const year = date.getUTCFullYear();
+
+
+    return `${day} de ${ months[month] } de ${ year }`
+
+}

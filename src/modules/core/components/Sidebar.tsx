@@ -17,7 +17,7 @@ export const Sidebar = () => {
             <ul className="sidemenu--items">
                 {
                     adminSidebarMenu.map(option => (
-                        <li key={option.path}>
+                        <li key={option.path} className="w-full">
 
                             <Link 
                                 to={ option.path }

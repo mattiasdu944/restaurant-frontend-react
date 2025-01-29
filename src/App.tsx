@@ -5,6 +5,7 @@ import { AuthLayout } from "./modules/core/layouts/auth-layout"
 import { AdminLayout } from "./modules/core/layouts/admin-layout"
 import { CategoriesPage } from "./pages/admin/categories/categories-page"
 import { ProductsPage } from "./pages/admin/products/products-page"
+import { POSPage } from "./pages/admin/pos/pos-page"
 
 
 const App = () => {
@@ -19,8 +20,8 @@ const App = () => {
 
       {/* DASHBOARD */}
       <Route path="/admin" element={ <AdminLayout/> }>
+        <Route path="pos" element={ <POSPage/> } />
         <Route path="categories" element={ <CategoriesPage/> } />
-        <Route path="products" element={ <ProductsPage/> } />
       </Route>
 
       {/* NOT FOUND */}

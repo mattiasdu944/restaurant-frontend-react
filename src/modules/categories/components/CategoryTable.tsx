@@ -3,6 +3,7 @@ import { useCategories } from "../hooks/useCategories";
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/table"
 import { DeleteCategoryButton } from "./DeleteCategoryButton";
 import { EditCategoryModal } from "./EditCategoryModal";
+import { formatDate } from '../../../lib/helpers/index';
 
 export const CategoryTable = () => {
 
@@ -44,8 +45,8 @@ export const CategoryTable = () => {
                                     {category.description}
                                 </p>
                             </TableCell>
-                            <TableCell>2024-02-02</TableCell>
-                            <TableCell>2024-02-02</TableCell>
+                            <TableCell>{ formatDate(category.createdAt) }</TableCell>
+                            <TableCell>{ formatDate(category.updatedAt) }</TableCell>
                             <TableCell>
                                 <EditCategoryModal category={category} />
                                 <DeleteCategoryButton categoryId={ category.id }/>

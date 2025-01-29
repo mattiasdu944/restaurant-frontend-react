@@ -1,10 +1,17 @@
-import React from 'react'
 
-export const TitlePage = () => {
+
+interface Props {
+
+    title: string;
+    description: string;
+
+}
+
+export const TitlePage = ({ description, title }: Props) => {
     return (
         <div>
-            <h1 className="text-3xl">Categories</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-        </div>
+            <h1 className="text-3xl">{ title }</h1>
+            <p>{ description }</p>
+        </div> 
     )
 }
