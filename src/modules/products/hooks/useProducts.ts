@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 export const useProducts = () => {
 
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(5);
+    const [limit, setLimit] = useState(10);
 
     const [searchParams] = useSearchParams();
     // const categoryFilter = searchParams.get('category');
