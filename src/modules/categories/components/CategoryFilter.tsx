@@ -1,10 +1,13 @@
 
 import { Button } from '@heroui/button'
 import { useCategories } from '../hooks/useCategories'
+import { useNavigate } from 'react-router';
 
 export const CategoryFilter = () => {
 
+    const navigate = useNavigate()
     const { categories, isLoading } = useCategories();
+
 
     if (isLoading) {
         return (
@@ -13,6 +16,11 @@ export const CategoryFilter = () => {
             </div>
         )
     }
+
+    const handleClick = (slug: string) => {
+        navigate(`/admin/pos?category=${ slug }`)
+    }
+
 
     return (
         <section>
@@ -26,7 +34,7 @@ export const CategoryFilter = () => {
                                 className='px-4 text-lg'
                                 variant='flat'
                                 radius='lg'
-
+                                onPress={() => handleClick(category.slug)}
                             >
                                 {category.name}
                             </Button>

@@ -23,6 +23,17 @@ export const ProductCard = ({ product }: Props) => {
                         width='100%'
                     />
                 </div>
+                <h3 className="text-center text-2xl line-clamp-1 ">
+                    { product.name }
+                </h3>
+                
+                <p className="text-center text-primary-500 font-bold text-2xl">
+                    ${ product.price }
+                </p>
+
+                <p className="text-lg text-center">
+                    <span>{ product.stock }u.</span> Disponibles
+                </p>
 
         
             </CardBody>
