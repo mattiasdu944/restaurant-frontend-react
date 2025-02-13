@@ -19,7 +19,7 @@ export const ProductGrid = () => {
     }
 
     const handleNavigate = (page: number) => {
-        navigate(`?page=${ page }`)
+        navigate(`?page=${page}`)
     }
 
     return (
@@ -36,16 +36,20 @@ export const ProductGrid = () => {
                     }
                 </ul>
 
-                <div className='w-full flex justify-center pt-8'>
+                {
+                    meta && (
+                        <div className='w-full flex justify-center pt-8'>
+                            <Pagination
+                                color='primary'
+                                className='mx-auto'
+                                onChange={handleNavigate}
+                                initialPage={meta?.page}
+                                total={meta?.lastPage ?? 0}
+                            />;
+                        </div>
+                    )
+                }
 
-                    <Pagination
-                        color='primary'
-                        className='mx-auto'
-                        onChange={handleNavigate}
-                        initialPage={meta?.page}
-                        total={meta?.lastPage ?? 0}
-                    />;
-                </div>
             </div>
         </section>
     )

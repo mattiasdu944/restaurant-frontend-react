@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const restaurantDb = axios.create({
-    baseURL: "https://backend-nest-js-production.up.railway.app/api",
+    baseURL: import.meta.env.VITE_API_URL,
     headers: {
         Accept: "application/json",
     }

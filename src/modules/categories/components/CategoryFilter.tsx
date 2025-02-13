@@ -1,12 +1,12 @@
 
 import { Button } from '@heroui/button'
 import { useCategories } from '../hooks/useCategories'
-import { useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router';
 
 export const CategoryFilter = () => {
 
-    const navigate = useNavigate()
     const { categories, isLoading } = useCategories();
+    const [ _, setSearchParams] = useSearchParams()
 
 
     if (isLoading) {
@@ -17,15 +17,29 @@ export const CategoryFilter = () => {
         )
     }
 
-    const handleClick = (slug: string) => {
-        navigate(`/admin/pos?category=${ slug }`)
-    }
+    const handleClick = (slug?: string) => {
 
+        if (!slug) {
+            setSearchParams({});
+            return;
+        }
+        setSearchParams({ category: slug })
+
+    }
 
     return (
         <section>
             <div className="container">
                 <ul className='flex items-center gap-4'>
+                    <Button
+                        as='li'
+                        className='px-4 text-lg'
+                        variant='flat'
+                        radius='lg'
+                        onPress={() => handleClick()}
+                    >
+                        Todos
+                    </Button>
                     {
                         categories?.map(category => (
                             <Button
