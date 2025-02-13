@@ -1,6 +1,7 @@
 import { Card, CardBody } from "@heroui/card";
 import { Product } from "../interfaces/product";
 import { Image } from "@heroui/image";
+import { useCartStore } from "../../cart/store/useCartStore";
 
 
 interface Props {
@@ -9,10 +10,14 @@ interface Props {
 
 
 export const ProductCard = ({ product }: Props) => {
+
+    const { addProductToCart } = useCartStore();
+
     return (
         <Card
             className="product__card"
             isPressable
+            onPress={() => addProductToCart(product)}
             shadow="sm"
         >
             <CardBody>
