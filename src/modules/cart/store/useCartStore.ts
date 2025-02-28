@@ -75,7 +75,7 @@ export const useCartStore = create<CartStore>()((set, get) => ({
     },
 
     decrementQuantity(id) {
-        const { cart, calculateTotal, removeProductFromCart } = get();
+        const { cart, calculateTotal } = get();
         
         const updateCartProducts = cart.map(item => {
 

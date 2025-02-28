@@ -1,10 +1,12 @@
 import { Button } from "@heroui/button"
 import { useCartStore } from "../store/useCartStore"
 import { Add01Icon, Delete01Icon, MinusSignIcon } from "hugeicons-react";
+import { useCreateOrder } from "../../orders/hooks/useCreateOrder";
 
 
 export const SideCart = () => {
 
+    const { createOrder } = useCreateOrder();
     const { cart, total, decrementQuantity, incrementQuantity, removeProductFromCart } = useCartStore();
 
     return (
@@ -81,6 +83,7 @@ export const SideCart = () => {
                 <Button 
                     color="primary"
                     fullWidth
+                    onPress={ () =>  createOrder() }
                 >
                     Generar Orden
                 </Button>
