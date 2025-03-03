@@ -118,4 +118,14 @@
     .product__card--image {
         @apply w-full rounded-[2rem] object-cover h-[200px] md:h-[275px] xl:h-[350px] object-center
     }
+
+    /* LOGIN */
+    .login {
+        @apply min-h-screen flex items-center justify-center
+    }
+
+    .login__form {
+        @apply bg-white rounded-lg border border-gray-300 py-8 px-12 flex flex-col w-full max-w-lg
+        gap-4
+    }    
 }

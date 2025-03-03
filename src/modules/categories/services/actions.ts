@@ -8,8 +8,13 @@ import { UpdateCategoryOptions } from "../interfaces/update-category-options";
 
 
 const getAllCategories = async () => {
-
-    const { data } = await restaurantDb.get<CategoriesResponse>('/categories');
+    const token = localStorage.getItem('RESTAURANT_TOKEN')
+    
+    const { data } = await restaurantDb.get<CategoriesResponse>('/categories',{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
 
     return data.categories;
 
@@ -17,9 +22,15 @@ const getAllCategories = async () => {
 
 
 const createCategory = async (category: CreateCategoryOptions) => {
+    const token = localStorage.getItem('RESTAURANT_TOKEN')
+
 
     try {
-        const { data } = await restaurantDb.post('/categories', category);
+        const { data } = await restaurantDb.post('/categories', category, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
 
 
         return {
@@ -35,9 +46,15 @@ const createCategory = async (category: CreateCategoryOptions) => {
 
 
 const deleteCategory = async (id: string) => {
+    const token = localStorage.getItem('RESTAURANT_TOKEN')
+
 
     try {
-        const { data } = await restaurantDb.delete(`/categories/${id}`);
+        const { data } = await restaurantDb.delete(`/categories/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
 
         return {
             data,
@@ -50,9 +67,15 @@ const deleteCategory = async (id: string) => {
 }
 
 const updateCategory = async (id: string, category: UpdateCategoryOptions) => {
+    const token = localStorage.getItem('RESTAURANT_TOKEN')
 
     try {
-        const { data } = await restaurantDb.patch(`/categories/${id}`, category);
+        const { data } = await restaurantDb.patch(`/categories/${id}`, category, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            
+            }
+        });
 
         return {
             data,
@@ -70,5 +93,6 @@ export default {
     createCategory,
     getAllCategories,
     deleteCategory,
+    updateCategory,
 }
 

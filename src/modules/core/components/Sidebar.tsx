@@ -1,10 +1,13 @@
-import { Store01Icon } from "hugeicons-react"
+import { Logout01Icon, Store01Icon } from "hugeicons-react"
 import { adminSidebarMenu } from "../constants"
 import { Link, useLocation } from "react-router"
+import { Button } from "@heroui/button";
+import { useAuthStore } from "../../auth/store/useAuthStore";
 
 export const Sidebar = () => {
 
     const { pathname } = useLocation();
+    const { logoutUser } = useAuthStore();
 
     
 
@@ -30,6 +33,13 @@ export const Sidebar = () => {
                     ))
                 }
             </ul>
+            <div className="flex-1"></div>
+            <Button
+                color="danger"
+                variant="light"
+                onPress={logoutUser}
+                startContent={ <Logout01Icon/> }
+            />
 
         </nav>
     )
